@@ -1,0 +1,38 @@
+managed implementation in class zgf_rap_bp_tkt unique;
+strict ( 2 );
+
+define behavior for ZGF_RAP_I_TKT alias Ticket
+persistent table zgf_rap_tkt
+lock master
+early numbering
+authorization master ( global )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly : update ) TicketId;
+  field ( mandatory ) Title;
+  field ( readonly ) Status, CreatedBy, CreatedAt, LastChangedBy, LastChangedAt, LocalLastChangedAt;
+
+  action ( features : instance ) closeTicket result [1] $self;
+
+  determination setStatusOpen on modify { create; }
+  validation validateTitle on save { create; field Title; }
+  validation validatePriority on save { create; field Priority; }
+
+  mapping for zgf_rap_tkt
+  {
+    TicketId           = ticket_id;
+    Title              = title;
+    Description        = description;
+    Priority           = priority;
+    Status             = status;
+    CreatedBy          = created_by;
+    CreatedAt          = created_at;
+    LastChangedBy      = last_changed_by;
+    LastChangedAt      = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'RAP reference: tickets'
+define service ZGF_RAP_UI_TKT {
+  expose ZGF_RAP_C_TKT as Ticket;
+}

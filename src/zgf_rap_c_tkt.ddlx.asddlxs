@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Ticket',
+    typeNamePlural: 'Tickets',
+    title: { type: #STANDARD, value: 'Title' },
+    description: { value: 'TicketId' }
+  },
+  presentationVariant: [{ sortOrder: [{ by: 'TicketId', direction: #ASC }] }]
+}
+annotate entity ZGF_RAP_C_TKT with
+{
+  @UI.facet: [
+    { id: 'General', type: #IDENTIFICATION_REFERENCE, label: 'General', position: 10 }
+  ]
+  @UI: { lineItem: [{ position: 10, importance: #HIGH }], identification: [{ position: 10 }], selectionField: [{ position: 10 }] }
+  TicketId;
+  @UI: { lineItem: [{ position: 20, importance: #HIGH }], identification: [{ position: 20 }] }
+  Title;
+  @UI: { identification: [{ position: 30 }] }
+  Description;
+  @UI: { lineItem: [{ position: 30, importance: #MEDIUM }], identification: [{ position: 40 }], selectionField: [{ position: 20 }] }
+  Priority;
+  @UI: { lineItem: [{ position: 40, importance: #HIGH }, { type: #FOR_ACTION, dataAction: 'closeTicket', label: 'Close ticket' }], identification: [{ position: 50 }, { type: #FOR_ACTION, dataAction: 'closeTicket', label: 'Close ticket' }], selectionField: [{ position: 30 }] }
+  Status;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  CreatedAt;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LastChangedAt;
+  @UI.hidden: true
+  LocalLastChangedAt;
+}
