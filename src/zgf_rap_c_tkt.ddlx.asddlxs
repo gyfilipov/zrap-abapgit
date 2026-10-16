@@ -21,7 +21,17 @@ annotate entity ZGF_RAP_C_TKT with
   Description;
   @UI: { lineItem: [{ position: 30, importance: #MEDIUM }], identification: [{ position: 40 }], selectionField: [{ position: 20 }] }
   Priority;
-  @UI: { lineItem: [{ position: 40, importance: #HIGH }, { type: #FOR_ACTION, dataAction: 'closeTicket', label: 'Close ticket' }], identification: [{ position: 50 }, { type: #FOR_ACTION, dataAction: 'closeTicket', label: 'Close ticket' }], selectionField: [{ position: 30 }] }
+  @UI: {
+    lineItem: [
+      { position: 40, importance: #HIGH },
+      { type: #FOR_ACTION, dataAction: 'closeTicket', label: 'Close ticket' }
+    ],
+    identification: [
+      { position: 50 },
+      { type: #FOR_ACTION, dataAction: 'closeTicket', label: 'Close ticket' }
+    ],
+    selectionField: [{ position: 30 }]
+  }
   Status;
   @UI.hidden: true
   CreatedBy;
