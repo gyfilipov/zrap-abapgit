@@ -5,6 +5,7 @@
    <VSEOCLASS>
     <CLSNAME>ZGF_RAP_BP_TKT</CLSNAME>
     <LANGU>E</LANGU>
+    <DESCRIPT>Behavior pool for ticket</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
